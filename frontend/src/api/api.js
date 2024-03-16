@@ -48,10 +48,16 @@ class JoblyApi {
     return res.user;
   }
 
-  /** Get companies (filtered by name if not undefined) */
+  /** Get and return a list of all companies */
 
   static async getCompanies(nameLike) {
-    let res = await this.request("companies", { nameLike });
+    const filteredData =
+      (Object.entries({ nameLike })
+        .filter(([_, value]) => value !== undefined && value !== ""));
+
+    console.log('filteredData in getCompanies', filteredData);
+    let res = await this.request(`companies`, Object.fromEntries(filteredData));
+
     return res.companies;
   }
 
