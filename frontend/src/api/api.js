@@ -62,10 +62,15 @@ class JoblyApi {
     return res.company;
   }
 
-  /** Get list of jobs (filtered by title if not undefined) */
+  /** Get a list of all jobs */
 
   static async getJobs(title) {
-    let res = await this.request("jobs", { title });
+    const filteredData =
+      (Object.entries({ title })
+        .filter(([_, value]) => value !== undefined && value !== ""));
+
+    let res = await this.request(`jobs`, Object.fromEntries(filteredData));
+
     return res.jobs;
   }
 
