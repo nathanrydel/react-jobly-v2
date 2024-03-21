@@ -38,7 +38,7 @@
 [Include any additional notes or considerations relevant to this directory's transition.]
 
 ### Project:
-[Specify the Project for completing the transition of this directory to TypeScript.]
+[Jobly Transition to TypeScript](https://github.com/users/nathanrydel/projects/5)
 
 
 ### Labels:
