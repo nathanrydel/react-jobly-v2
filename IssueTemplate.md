@@ -39,7 +39,8 @@
 
 ### Project:
 [Jobly Transition to TypeScript](https://github.com/users/nathanrydel/projects/5)
-
+[Frontend Transition](https://github.com/nathanrydel/react-jobly-v2/milestone/1)
+[Backend Transition](https://github.com/nathanrydel/react-jobly-v2/milestone/2)
 
 ### Labels:
 - [ ] TypeScript
