@@ -1,3 +1,5 @@
+import { Company, User, Job } from "../@types/types";
+
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 /** API Class.
@@ -10,9 +12,9 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 class JoblyApi {
   // the token for interactive with the API will be stored here.
-  static token;
+  static token: string | null = null;
 
-  static async request(endpoint, data = {}, method = "GET") {
+  static async request(endpoint: string, data = {}, method = "GET"): Promise<any> {
     const url = new URL(`${BASE_URL}/${endpoint}`);
     const headers = {
       authorization: `Bearer ${JoblyApi.token}`,
@@ -43,14 +45,14 @@ class JoblyApi {
 
   /** Get the current user. */
 
-  static async getCurrentUser(username) {
+  static async getCurrentUser(username: string) {
     let res = await this.request(`users/${username}`);
     return res.user;
   }
 
   /** Get and return a list of all companies */
 
-  static async getCompanies(nameLike) {
+  static async getCompanies(nameLike: string): Promise<Company[]> {
     const filteredData =
       (Object.entries({ nameLike })
         .filter(([_, value]) => value !== undefined && value !== ""));
@@ -63,14 +65,14 @@ class JoblyApi {
 
   /** Get details on a company by handle. */
 
-  static async getCompany(handle) {
+  static async getCompany(handle: string): Promise<Company> {
     let res = await this.request(`companies/${handle}`);
     return res.company;
   }
 
   /** Get a list of all jobs */
 
-  static async getJobs(title) {
+  static async getJobs(title: string): Promise<Job[]> {
     const filteredData =
       (Object.entries({ title })
         .filter(([_, value]) => value !== undefined && value !== ""));
@@ -82,27 +84,27 @@ class JoblyApi {
 
   /** Apply to a job */
 
-  static async applyToJob(username, id) {
+  static async applyToJob(username: string, id: number): Promise<void> {
     await this.request(`users/${username}/jobs/${id}`, {}, "POST");
   }
 
   /** Get token for login from username, password. */
 
-  static async login(data) {
+  static async login(data: { username: string, password: string; }): Promise<string> {
     let res = await this.request(`auth/token`, data, "POST");
     return res.token;
   }
 
   /** Signup for site. */
 
-  static async signup(data) {
+  static async signup(data: User): Promise<string> {
     let res = await this.request(`auth/register`, data, "POST");
     return res.token;
   }
 
   /** Save user profile page. */
 
-  static async saveProfile(username, data) {
+  static async saveProfile(username: string, data: User): Promise<User> {
     let res = await this.request(`users/${username}`, data, "PATCH");
     return res.user;
   }
