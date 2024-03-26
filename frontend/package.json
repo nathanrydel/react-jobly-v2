@@ -6,12 +6,17 @@
     "@testing-library/jest-dom": "*",
     "@testing-library/react": "*",
     "@testing-library/user-event": "*",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.72",
+    "@types/react-dom": "^18.2.22",
     "bootstrap": "*",
     "jwt-decode": "*",
     "react": "*",
     "react-dom": "*",
     "react-router-dom": "*",
     "react-scripts": "*",
+    "typescript": "^5.4.3",
     "web-vitals": "*"
   },
   "scripts": {
