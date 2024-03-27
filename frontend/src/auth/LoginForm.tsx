@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, SetStateAction } from "react";
 import Alert from "../common/Alert";
 import "./LoginForm.css";
 import { useNavigate } from "react-router-dom";
+
+type tLoginFormProps = {
+  username: string;
+  password: string;
+}
+
+type tLoginFunction = (data: tLoginFormProps) => Promise<string>;
 
 /** Login form.
  *
@@ -13,7 +20,7 @@ import { useNavigate } from "react-router-dom";
  * Routed as /login
  */
 
-function LoginForm({ login }) {
+function LoginForm({ login }: {login: tLoginFunction}) {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
@@ -32,19 +39,21 @@ function LoginForm({ login }) {
    *
    * Calls login func prop and, if not successful, sets errors.
    */
-  async function handleSubmit(evt) {
+  async function handleSubmit(evt: React.FormEvent<HTMLFormElement>) {
     evt.preventDefault();
     try {
       await login(formData);
       navigate("/companies")
     } catch (err) {
-      setFormErrors(err);
+      setFormErrors(err as SetStateAction<never[]>);
     }
   }
 
   /** Update form data field */
-  function handleChange(evt) {
-    const { name, value } = evt.target;
+  function handleChange(evt: React.FormEvent<HTMLInputElement>) {
+    const target = evt.target as HTMLInputElement;
+    const name = target.name;
+    const value = target.value;
     setFormData(l => ({ ...l, [name]: value }));
   }
 
@@ -85,7 +94,7 @@ function LoginForm({ login }) {
                 : null}
 
               <div className="d-grid">
-                <button className="btn btn-primary" onClick={handleSubmit}>
+                <button type="submit" className="btn btn-primary">
                   Submit
                 </button>
               </div>

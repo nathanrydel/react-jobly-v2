@@ -58,6 +58,7 @@ exports[`matches snapshot 1`] = `
             >
               <button
                 class="btn btn-primary"
+                type="submit"
               >
                 Submit
               </button>
