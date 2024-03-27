@@ -1,12 +1,13 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Homepage from "../homepage/Homepage";
+import { Homepage } from '../homepage';
 import CompanyList from "../companies/CompanyList";
 import JobList from "../jobs/JobList";
 import CompanyDetail from "../companies/CompanyDetail";
 import LoginForm from "../auth/LoginForm";
 import ProfileForm from "../profiles/ProfileForm";
 import SignupForm from "../auth/SignupForm";
+import { AppRoutes } from '../constants/Routes.enumerations';
 
 /** Site-wide routes.
  *
@@ -27,12 +28,12 @@ function RoutesList({ login, signup, currentUser }) {
       <Routes>
         {!currentUser &&
         <>
-          <Route path="/login"element={<LoginForm login={login} />} />
-          <Route path="/signup"element={<SignupForm signup={signup} />} />
+          <Route path="/login" element={<LoginForm login={login} />} />
+          <Route path="/signup" element={<SignupForm signup={signup} />} />
         </>
         }
 
-        <Route path="/"element={<Homepage />} />
+        <Route path={AppRoutes.Homepage} element={<Homepage />} />
 
         {currentUser &&
         <>
