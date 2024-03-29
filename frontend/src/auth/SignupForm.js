@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from 'react';
 import Alert from "../common/Alert";
 import "./SignupForm.css";
 import { useNavigate } from "react-router-dom";
+import { UserProviderContext } from '~/providers';
 
 /** Signup form.
  *
@@ -13,7 +14,9 @@ import { useNavigate } from "react-router-dom";
  * Routed as /signup
  */
 
-function SignupForm({ signup }) {
+function SignupForm() {
+
+  const { signup } = useContext(UserProviderContext);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",

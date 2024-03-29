@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from 'react';
 import Alert from "../common/Alert";
 import "./LoginForm.css";
 import { useNavigate } from "react-router-dom";
+import { UserProviderContext } from '~/providers';
 
 /** Login form.
  *
@@ -13,7 +14,8 @@ import { useNavigate } from "react-router-dom";
  * Routed as /login
  */
 
-function LoginForm({ login }) {
+function LoginForm() {
+  const { login } = useContext(UserProviderContext);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
@@ -35,7 +37,7 @@ function LoginForm({ login }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      await login(formData);
+      login(formData);
       navigate("/companies")
     } catch (err) {
       setFormErrors(err);

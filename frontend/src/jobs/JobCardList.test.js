@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import JobCardList from "./JobCardList";
-import { UserProvider } from "../testUtils";
+import { UserProvider } from '~/providers';
 
 
 it("matches snapshot", function () {

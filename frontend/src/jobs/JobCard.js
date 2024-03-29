@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from 'react';
 import "./JobCard.css";
-import UserContext from "../auth/UserContext";
+import { UserProviderContext } from "~/providers";
 
 /** Show limited information about a job.
  *
@@ -14,13 +14,11 @@ import UserContext from "../auth/UserContext";
 function JobCard({ id, title, salary, equity, companyName }) {
   console.debug("JobCard");
 
-  const { hasAppliedToJob, applyToJob } = useContext(UserContext);
+  const { hasAppliedToJob, applyToJob } = useContext(UserProviderContext);
   const [applied, setApplied] = useState();
 
-  React.useEffect(
+  useEffect(
     function updateAppliedStatus() {
-      console.debug("JobCard useEffect updateAppliedStatus", "id=", id);
-
       setApplied(hasAppliedToJob(id));
     },
     [id, hasAppliedToJob]

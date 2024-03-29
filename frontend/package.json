@@ -3,6 +3,7 @@
   "version": "2.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^7.1.0",
     "@testing-library/jest-dom": "*",
     "@testing-library/react": "*",
     "@testing-library/user-event": "*",
@@ -20,9 +21,9 @@
     "web-vitals": "*"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -42,5 +43,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^~/(.*)$": "<rootDir>/src/$1",
+      "^~providers/(.*)$": "<rootDir>/src/providers/$1",
+      "^~providers$": "<rootDir>/src/providers/index.ts",
+      "^~constants/(.*)$": "<rootDir>/src/constants/$1",
+      "^~pages/(.*)$": "<rootDir>/src/pages/$1"
+    }
   }
 }

@@ -1,7 +1,9 @@
 import React, { useState, useContext } from "react";
+
+import { UserProviderContext } from "~/providers";
+
 import Alert from "../common/Alert";
 import JoblyApi from "../api/api";
-import UserContext from "../auth/UserContext";
 import "./ProfileForm.css"
 
 // eslint-disable-next-line
@@ -22,12 +24,12 @@ import useTimedMessage from "../hooks/useTimedMessage";
  */
 
 function ProfileForm() {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useContext(UserProviderContext);
   const [formData, setFormData] = useState({
-    firstName: currentUser.firstName,
-    lastName: currentUser.lastName,
-    email: currentUser.email,
-    username: currentUser.username,
+    firstName: currentUser?.firstName,
+    lastName: currentUser?.lastName,
+    email: currentUser?.email,
+    username: currentUser?.username,
   });
   const [formErrors, setFormErrors] = useState([]);
 

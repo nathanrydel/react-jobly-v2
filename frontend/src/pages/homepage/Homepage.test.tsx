@@ -1,8 +1,10 @@
 import React from "react";
 import { render, RenderResult } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
+
+import { UserProvider } from "~/providers";
+
 import { Homepage } from "./Homepage";
-import { UserProvider } from "../testUtils";
 
 
 it("matches snapshot", function (): void {

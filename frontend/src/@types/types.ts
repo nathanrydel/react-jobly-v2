@@ -1,8 +1,14 @@
-export type User = {
+export type User = SignUpUser & {
+  isAdmin?: boolean;
+  applications?: number[];
+};
+
+export type SignUpUser = {
+  email: string;
   firstName: string;
   lastName: string;
-  email: string;
-  isAdmin: boolean;
+  password: string;
+  username: string;
 };
 
 export type Company = {
@@ -20,10 +26,10 @@ export type Job = {
   companyHandle: string;
 };
 
-export type DemoUser = {
+export type AuthUser = {
   username: string;
   first_name: string;
   last_name: string;
   email: string;
   photo_url: string | null;
-} | null;
+};

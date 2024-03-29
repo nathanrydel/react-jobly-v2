@@ -2,7 +2,7 @@ import React, { FC, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import "./Homepage.css";
-import UserContext from "../auth/UserContext";
+import { UserProviderContext } from "~/providers";
 import { COPY } from "./Homepage.constants";
 
 /** Homepage of site.
@@ -15,7 +15,8 @@ import { COPY } from "./Homepage.constants";
  */
 
 export const Homepage: FC = () => {
-  const { currentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserProviderContext);
+
   console.debug("Homepage", "currentUser=", currentUser);
 
   const welcomeMessage = `Welcome Back, ${currentUser?.firstName || currentUser?.username}!`
