@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, FC, FormEvent, useState } from "react";
 import "./SearchForm.css";
 
 /** Search widget.
@@ -12,27 +12,27 @@ import "./SearchForm.css";
  *
  * { CompanyList, JobList } -> SearchForm
  */
-interface SearchFormProps{
+interface SearchFormProps {
   searchFor: (term: string | undefined) => void;
 }
 
-const SearchForm: React.FC<SearchFormProps> = ({ searchFor }) => {
+const SearchForm: FC<SearchFormProps> = ({ searchFor }) => {
   console.debug("SearchForm", "searchFor=", typeof searchFor);
 
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   /** Tell parent to filter */
-  const handleSubmit = (evt:React.FormEvent):void => {
+  const handleSubmit = (evt: FormEvent): void => {
     // take care of accidentally trying to search for just spaces
     evt.preventDefault();
     searchFor(searchTerm.trim() || undefined);
     setSearchTerm(searchTerm.trim());
-  }
+  };
 
   /** Update form fields */
-  const handleChange = (evt:React.ChangeEvent<HTMLInputElement>):void => {
+  const handleChange = (evt: ChangeEvent<HTMLInputElement>): void => {
     setSearchTerm(evt.target.value);
-  }
+  };
 
   return (
     <div className="SearchForm mb-4">
@@ -56,6 +56,6 @@ const SearchForm: React.FC<SearchFormProps> = ({ searchFor }) => {
       </form>
     </div>
   );
-}
+};
 
 export default SearchForm;
