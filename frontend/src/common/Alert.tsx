@@ -1,15 +1,15 @@
-import React from "react";
+import React, { FC } from "react";
 
 /** Presentational component for showing bootstrap-style alerts.
  *
  * { LoginForm, SignupForm, ProfileForm } -> Alert
  **/
 export interface AlertProps {
-  type : string,
-  messages: string[]
+  type: string;
+  messages: string[];
 }
 
-const Alert: React.FC<AlertProps> = ({ type = "danger", messages = [] }) => {
+const Alert: FC<AlertProps> = ({ type = "danger", messages = [] }) => {
   console.debug("Alert", "type=", type, "messages=", messages);
 
   return (
