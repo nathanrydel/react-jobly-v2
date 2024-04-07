@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import "./LoadingSpinner.css";
 
 /** Loading message used by components that fetch API data. */
 
-function LoadingSpinner() {
+const LoadingSpinner : FC = () => {
   return (
     <div className="LoadingSpinner">
       Loading ...
