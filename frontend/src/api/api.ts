@@ -1,4 +1,4 @@
-import { Company, User, Job } from "../@types/types";
+import { Company, User, Job, SignUpUser } from "~/@types/types";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
@@ -97,7 +97,7 @@ class JoblyApi {
 
   /** Signup for site. */
 
-  static async signup(data: User): Promise<string> {
+  static async signup(data: SignUpUser): Promise<string> {
     let res = await this.request(`auth/register`, data, "POST");
     return res.token;
   }

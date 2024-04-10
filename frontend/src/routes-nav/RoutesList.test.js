@@ -2,7 +2,19 @@ import React from "react";
 import { render } from "@testing-library/react";
 import RoutesList from "./RoutesList";
 import { MemoryRouter } from "react-router";
-import { UserProvider } from "../testUtils";
+import { UserProvider } from '~/providers';
+import { MockUserProvider } from '~/test-utils/MockUserProvider';
+
+// Define the demoUser object
+const demoUser = {
+  username: "testuser",
+  firstName: "testfirst",
+  lastName: "testlast",
+  password: "testpassword",
+  email: "test@test.net",
+  isAdmin: false,
+  applications: [],
+};
 
 it("renders without crashing", function () {
   render(
@@ -14,12 +26,12 @@ it("renders without crashing", function () {
   );
 });
 
-it("matches snapshot", function () {
+it("matches snapshot with demo user", function () {
   const { asFragment } = render(
       <MemoryRouter>
-        <UserProvider>
+        <MockUserProvider currentUser={demoUser}>
           <RoutesList />
-        </UserProvider>
+        </MockUserProvider>
       </MemoryRouter>,
   );
   expect(asFragment()).toMatchSnapshot();

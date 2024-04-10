@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches snapshot 1`] = `
+exports[`matches snapshot when logged out: Navigation snapshot when logged out 1`] = `
 <DocumentFragment>
   <nav
     class="Navigation navbar navbar-expand-md"
@@ -22,9 +22,9 @@ exports[`matches snapshot 1`] = `
         >
           <a
             class="nav-link"
-            href="/companies"
+            href="/login"
           >
-            Companies
+            Login
           </a>
         </li>
         <li
@@ -32,29 +32,9 @@ exports[`matches snapshot 1`] = `
         >
           <a
             class="nav-link"
-            href="/jobs"
+            href="/signup"
           >
-            Jobs
-          </a>
-        </li>
-        <li
-          class="nav-item me-4"
-        >
-          <a
-            class="nav-link"
-            href="/profile"
-          >
-            Profile
-          </a>
-        </li>
-        <li
-          class="nav-item"
-        >
-          <a
-            class="nav-link"
-            href="/"
-          >
-            Log out testfirst
+            Sign Up
           </a>
         </li>
       </ul>
@@ -63,7 +43,7 @@ exports[`matches snapshot 1`] = `
 </DocumentFragment>
 `;
 
-exports[`matches snapshot when logged out 1`] = `
+exports[`matches snapshot: Navigation snapshot when logged in 1`] = `
 <DocumentFragment>
   <nav
     class="Navigation navbar navbar-expand-md"

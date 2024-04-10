@@ -22,3 +22,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Echoing both frontend and backend .gitignore files
+echo "frontend/build" >> .gitignore
+echo "frontend/node_modules" >> .gitignore
+echo "backend/node_modules" >> .gitignore
+

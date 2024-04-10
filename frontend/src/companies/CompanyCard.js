@@ -11,7 +11,6 @@ import "./CompanyCard.css";
  */
 
 function CompanyCard({ name, description, logoUrl, handle }) {
-  console.debug("CompanyCard", logoUrl);
 
   return (
     <Link className="CompanyCard card" to={`/companies/${handle}`}>

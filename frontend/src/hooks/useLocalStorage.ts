@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Dispatch, SetStateAction } from "react";
 
 /** Custom hook for keeping state data synced with localStorage.
  *
@@ -15,7 +15,7 @@ import { useState, useEffect } from "react";
  *   const [myThing, setMyThing] = useLocalStorage("myThing")
  */
 
-function useLocalStorage(key, firstValue = null) {
+function useLocalStorage(key: string, firstValue: string | null = null): [string | null, Dispatch<SetStateAction<string | null>>] {
   const initialValue = localStorage.getItem(key) || firstValue;
 
   const [item, setItem] = useState(initialValue);

@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import Navigation from "./Navigation";
-import { UserProvider } from "../testUtils";
+import { UserProvider } from "~/providers";
 
 it("renders without crashing", function () {
   render(
@@ -22,7 +22,9 @@ it("matches snapshot", function () {
         </UserProvider>
       </MemoryRouter>,
   );
-  expect(asFragment()).toMatchSnapshot();
+  expect(asFragment()).toMatchSnapshot(
+      "Navigation snapshot when logged in",
+  );
 });
 
 it("matches snapshot when logged out", function () {
@@ -33,5 +35,7 @@ it("matches snapshot when logged out", function () {
         </UserProvider>
       </MemoryRouter>,
   );
-  expect(asFragment()).toMatchSnapshot();
+  expect(asFragment()).toMatchSnapshot(
+      "Navigation snapshot when logged out",
+  );
 });

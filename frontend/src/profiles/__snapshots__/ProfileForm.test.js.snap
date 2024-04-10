@@ -26,7 +26,6 @@ exports[`matches snapshot 1`] = `
             <input
               class="form-control"
               disabled=""
-              placeholder="testuser"
             />
           </div>
           <div
@@ -68,7 +67,7 @@ exports[`matches snapshot 1`] = `
             <input
               class="form-control"
               name="email"
-              value="test@test.net"
+              value=""
             />
           </div>
           <div

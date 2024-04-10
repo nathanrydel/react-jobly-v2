@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches snapshot 1`] = `
+exports[`matches snapshot with demo user 1`] = `
 <DocumentFragment>
   <div
     class="pt-5"
@@ -22,7 +22,7 @@ exports[`matches snapshot 1`] = `
           All the jobs in one, convenient place.
         </p>
         <h2>
-          Welcome Back, testuser!
+          Welcome Back, testfirst!
         </h2>
       </div>
     </div>
